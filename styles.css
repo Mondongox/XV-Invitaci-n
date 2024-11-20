@@ -1,34 +1,57 @@
 body {
-     background-color: #caf5b0;
+    background-color: #caf5b0;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .video-container {
-     position: relative; /* Para poder posicionar elementos sobre el video */
-     width: 800px;
-     height: 800px;
-     margin: 0 auto; /* Centra el contenedor horizontalmente */
+    position: relative; /* Para poder posicionar elementos sobre el video */
+    width: 100%;
+    height: 100%; /* Asegura que el contenedor ocupe el 100% de la altura disponible */
+    max-width: 800px; /* Máximo ancho para pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    overflow: hidden; /* Evita que el contenido del video se desborde */
 }
 
 .video {
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
+    width: 100%;
+    height: 100%; /* El video ocupa el 100% de la altura del contenedor */
+    object-fit: contain; /* El video se ajusta dentro del contenedor sin recortar */
 }
 
 .button {
-     position: relative; /* Posiciona el botón absolutamente dentro del contenedor */
-     top:30px;
-     bottom: 20px; /* Ajusta la distancia desde el borde inferior */
-     left: 50%; /* Centra el botón horizontalmente */
-     transform: translateX(-50%); /* Ajusta el centrado */
-     background-color: #333;
-     color: #fff;
-     padding: 10px 20px;
-     border-radius: 5px;
-     cursor: pointer;
-     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: block; /* Hace que el botón sea un bloque, ocupando toda la línea */
+    margin: 20px auto; /* Centra el botón horizontalmente con margen */
+    background-color: #333;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    text-align: center; /* Centra el texto dentro del botón */
+    width: fit-content; /* Ajusta el ancho del botón al contenido */
 }
 
 .button:hover {
-     background-color: #555;
+    background-color: #555;
+}
+
+/* Media Query para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .video-container {
+        height: auto; /* Ajusta la altura en pantallas pequeñas */
+        width: 100%; /* Utiliza el ancho completo de la pantalla */
+    }
+
+    .video {
+        object-fit: contain; /* En pantallas pequeñas, el video no se recorta y se ajusta dentro del contenedor */
+        width: 100%; /* Asegura que el video ocupe el 100% del ancho */
+        height: auto; /* La altura se ajusta automáticamente para mantener la relación de aspecto */
+    }
+
+    .button {
+        padding: 12px 25px; /* Ajusta el tamaño del botón en dispositivos pequeños */
+        font-size: 14px;
+    }
 }
