@@ -1,34 +1,50 @@
 body {
      background-color: #caf5b0;
+     margin: 0;
+     font-family: Arial, sans-serif;
 }
 
 .video-container {
      position: relative; /* Para poder posicionar elementos sobre el video */
-     width: 800px;
-     height: 800px;
+     width: 100%;
+     height: auto; /* Ajusta la altura automáticamente para mantener la relación de aspecto */
+     max-width: 800px; /* Maximo ancho para pantallas grandes */
      margin: 0 auto; /* Centra el contenedor horizontalmente */
+     overflow: hidden; /* Previene que el video se desborde */
 }
 
 .video {
      width: 100%;
-     height: 100%;
-     object-fit: cover;
+     height: auto;
+     object-fit: cover; /* Asegura que el video cubra todo el contenedor sin deformarse */
 }
 
 .button {
-     position: relative; /* Posiciona el botón absolutamente dentro del contenedor */
-     top:30px;
-     bottom: 20px; /* Ajusta la distancia desde el borde inferior */
-     left: 50%; /* Centra el botón horizontalmente */
-     transform: translateX(-50%); /* Ajusta el centrado */
+     display: block; /* Hace que el botón sea un bloque, ocupando toda la línea */
+     margin: 20px auto; /* Centra el botón horizontalmente con un margen arriba y abajo */
      background-color: #333;
      color: #fff;
-     padding: 10px 20px;
+     padding: 15px 30px;
      border-radius: 5px;
      cursor: pointer;
      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+     font-size: 16px;
+     text-align: center; /* Centra el texto dentro del botón */
+     width: fit-content; /* Ajusta el ancho del botón al contenido */
 }
-
 .button:hover {
      background-color: #555;
+}
+
+ /* Media Query para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+     .video-container {
+         height: 200px; /* Limita la altura del contenedor en pantallas pequeñas */
+         width: 100%; /* Utiliza el ancho completo de la pantalla */
+     }
+
+     .button {
+         padding: 12px 25px; /* Ajusta el tamaño del botón en dispositivos pequeños */
+     font-size: 14px;
+     }
 }
