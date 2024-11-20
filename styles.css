@@ -1,18 +1,14 @@
-/* Reset básico */
-* {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-}
+
 
 body {
      font-family: Arial, sans-serif;
-     background-color: #cccccc;
+     background-color: #f0f0f0;
      display: flex;
      justify-content: center;
      align-items: center;
-     height: 150vh;
-} 
+     height: 100vh;
+}
+
  /* Contenedor principal */
 .container {
      display: flex;
@@ -26,17 +22,18 @@ body {
  /* Contenedor del video */
 .video-container {
      width: 100%;
-     max-width: 900px;
-     height: auto;
+     max-width: 1500px; /* Máximo ancho del video */
+     height: 120vh; /* La altura del video es un porcentaje de la altura de la ventana */
      position: relative;
      margin-bottom: 20px;
+     overflow: hidden;
 }
 
  /* Estilos del video */
 .video {
      width: 100%;
-     height: auto;
-     object-fit: cover; /* Ajusta el video para cubrir el contenedor sin distorsionarlo */
+     height: 100%; /* Asegura que el video ocupe el 100% de la altura del contenedor */
+     object-fit: contain; /* El video se ajusta dentro del contenedor sin recortarse */
 }
 
  /* Estilos del botón */
@@ -67,12 +64,18 @@ body {
  /* Media Query para pantallas pequeñas */
 @media (max-width: 600px) {
      .video-container {
-     width: 90%;
-         height: 200px; /* Limita la altura del video en móviles */
+         width: 90%; /* Hace que el contenedor ocupe el 90% del ancho de la pantalla */
+         height: 70vh; /* Aumenta la altura del video en dispositivos pequeños */
+         margin-bottom: 30px; /* Aumenta el margen debajo del video */
      }
 
      .button {
      font-size: 16px;
-     padding: 12px 25px;
+     padding: 15px 35px;
+     }
+
+     /* Añadir un poco más de espacio entre el video y el botón */
+     .button-container {
+         margin-top: 30px; /* Mueve el botón un poco más abajo */
      }
 }
