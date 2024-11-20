@@ -1,50 +1,78 @@
-body {
-     background-color: #caf5b0;
+/* Reset básico */
+* {
      margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body {
      font-family: Arial, sans-serif;
-}
-
-.video-container {
-     position: relative; /* Para poder posicionar elementos sobre el video */
+     background-color: #cccccc;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 150vh;
+} 
+ /* Contenedor principal */
+.container {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
      width: 100%;
-     height: auto; /* Ajusta la altura automáticamente para mantener la relación de aspecto */
-     max-width: 800px; /* Maximo ancho para pantallas grandes */
-     margin: 0 auto; /* Centra el contenedor horizontalmente */
-     overflow: hidden; /* Previene que el video se desborde */
 }
 
+ /* Contenedor del video */
+.video-container {
+     width: 100%;
+     max-width: 900px;
+     height: auto;
+     position: relative;
+     margin-bottom: 20px;
+}
+
+ /* Estilos del video */
 .video {
      width: 100%;
      height: auto;
-     object-fit: cover; /* Asegura que el video cubra todo el contenedor sin deformarse */
+     object-fit: cover; /* Ajusta el video para cubrir el contenedor sin distorsionarlo */
+}
+
+ /* Estilos del botón */
+.button-container {
+     width: 100%;
+     display: flex;
+     justify-content: center;
 }
 
 .button {
-     display: block; /* Hace que el botón sea un bloque, ocupando toda la línea */
-     margin: 20px auto; /* Centra el botón horizontalmente con un margen arriba y abajo */
      background-color: #333;
      color: #fff;
+     font-size: 18px;
      padding: 15px 30px;
+     border: none;
      border-radius: 5px;
      cursor: pointer;
-     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-     font-size: 16px;
-     text-align: center; /* Centra el texto dentro del botón */
-     width: fit-content; /* Ajusta el ancho del botón al contenido */
-}
-.button:hover {
-     background-color: #555;
+     text-transform: uppercase;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
- /* Media Query para pantallas pequeñas (móviles) */
+.button:hover {
+     background-color: #555;
+     transform: translateY(-2px);
+}
+
+ /* Media Query para pantallas pequeñas */
 @media (max-width: 600px) {
      .video-container {
-         height: 200px; /* Limita la altura del contenedor en pantallas pequeñas */
-         width: 100%; /* Utiliza el ancho completo de la pantalla */
+     width: 90%;
+         height: 200px; /* Limita la altura del video en móviles */
      }
 
      .button {
-         padding: 12px 25px; /* Ajusta el tamaño del botón en dispositivos pequeños */
-     font-size: 14px;
+     font-size: 16px;
+     padding: 12px 25px;
      }
 }
